@@ -721,7 +721,6 @@ button::-moz-focus-inner {
   margin-top: 4px; 
 } 
 .text{ color: var(--primary-text-color);
- 
 }
 
 .products .product-title {
@@ -739,7 +738,7 @@ button::-moz-focus-inner {
 }
 .overlay-products {
   position: relative;
-  overflow: hidden;
+  overflow: hidden; 
 }
 
 .description {
@@ -767,10 +766,9 @@ button::-moz-focus-inner {
 .link-card:hover .description,
 .link-card:focus .description {
   opacity: 1;
-  transform: translateY(0);
-  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
-}
+  transform: translateY(0);}
  
+  /* modal */
 .backdrop {
   position: fixed;
   top: 0;
@@ -779,7 +777,18 @@ button::-moz-focus-inner {
   height: 100%;
   background-color: rgba(0, 0, 0, 0.2);
   opacity: 1; 
-  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1),
+  visibility 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.backdrop.is-hidden{
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.backdrop.is-hidden .modal{
+  transform: translate(-50%, -50%) scale(0.9);
 }
 
 .modal{
@@ -793,13 +802,6 @@ button::-moz-focus-inner {
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 2px 1px rgba(0, 0, 0, 0.2);
   transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
-.backdrop.is-hidden{
-  opacity: 0;
-  pointer-events: none;
-}
-.backdrop.is-hidden .modal{
-  transform: translate(-50%, -50%) scale(0.9);
-  visibility: hidden;}
 
   .modal .close-btn{
     position: absolute;
@@ -810,6 +812,5 @@ button::-moz-focus-inner {
     border: 1px solid rgba(0, 0, 0, 0.1);
     top: 8px;
     right: 8px;
-  
   }
 
